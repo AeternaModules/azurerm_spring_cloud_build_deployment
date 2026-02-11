@@ -22,7 +22,7 @@ EOT
     addon_json                             = optional(string)
     application_performance_monitoring_ids = optional(list(string))
     environment_variables                  = optional(map(string))
-    instance_count                         = optional(number, 1)
+    instance_count                         = optional(number) # Default: 1
     quota = optional(object({
       cpu    = optional(string)
       memory = optional(string)
