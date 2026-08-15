@@ -28,7 +28,7 @@ output "spring_cloud_build_deployments_name" {
 }
 output "spring_cloud_build_deployments_quota" {
   description = "Map of quota values across all spring_cloud_build_deployments, keyed the same as var.spring_cloud_build_deployments"
-  value       = { for k, v in azurerm_spring_cloud_build_deployment.spring_cloud_build_deployments : k => v.quota if v.quota != null && length(v.quota) > 0 }
+  value       = { for k, v in azurerm_spring_cloud_build_deployment.spring_cloud_build_deployments : k => one(v.quota) if v.quota != null && length(v.quota) > 0 }
 }
 output "spring_cloud_build_deployments_spring_cloud_app_id" {
   description = "Map of spring_cloud_app_id values across all spring_cloud_build_deployments, keyed the same as var.spring_cloud_build_deployments"
